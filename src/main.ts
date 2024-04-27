@@ -17,7 +17,10 @@ async function gameSetup() {
     },
   });
   k.loadSprite('level-1', './level-1.png');
-  k.scene('level-1', () => {});
+  k.scene('level-1', () => {
+    k.setGravity(2100);
+    k.add([k.rect(k.width(), k.height()), k.color(k.Color.fromHex('#f7d7db'))]);
+  });
   k.go('level-1');
 }
 gameSetup();
