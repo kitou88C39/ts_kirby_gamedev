@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "kaboom": "^3000.1.17",
     "vue": "^3.4.21"
   },
   "devDependencies": {
