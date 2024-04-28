@@ -8,7 +8,11 @@ export async function makeMap(k: KaboomCtx, name: String) {
   for (const layer of mapData.layer) {
     if (layer.name === 'colliders') {
       for (const colliders of layer.objects) {
-        map.add();
+        map.add([
+          k.area({
+            shape: new k.React(k.vec2(0)),
+          }),
+        ]);
       }
     }
   }
