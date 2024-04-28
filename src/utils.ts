@@ -22,5 +22,13 @@ export async function makeMap(k: KaboomCtx, name: String) {
     }
     if (layer.name === 'spawnpoints') {
       for (const spawnPoints of layer.objects) {
+        if (spawnPoints[spawnPoints.name]) {
+          spawnPoints[spawnPoints.name].push({
+            x: spawnPoints.x,
+            y: spawnPoints.y,
+          });
+        }
+      }
+    }
   }
 }
