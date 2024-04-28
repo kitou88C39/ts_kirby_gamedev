@@ -60,4 +60,9 @@ export function makePlayer(k: KaboomCtx, posX: number, posY: number) {
     k.opacity(0),
     'inhaleEffect',
   ]);
+  const inhaleZone = player.add([
+    k.area({ shape: new k.Rect(k.vec2(0), 20, 4) }),
+    k.pos(),
+    'inhaleZone',
+  ]);
 }
