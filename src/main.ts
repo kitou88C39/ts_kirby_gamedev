@@ -31,6 +31,6 @@ async function gameSetup() {
       k.fixed(),
     ]);
   });
-  k.go('level-1');
+  k.go(level1Layout);
 }
 gameSetup();
