@@ -1,7 +1,7 @@
 import { KaboomCtx } from 'kaboom';
 import { scale } from './constants';
 
-export async function makeMap(k: KaboomCtx, name: String) {
+export async function makeMap(k: KaboomCtx, name: string) {
   const mapData = await (await fetch(`./${name}.json`)).json();
   const map = k.make([k.sprite(name), k.scale(scale), k.pos(0)]);
   const spawnPoints: { [key: string]: { x: number; y: number }[] } = {};
@@ -21,20 +21,13 @@ export async function makeMap(k: KaboomCtx, name: String) {
       continue;
     }
     if (layer.name === 'spawnpoints') {
-      for (const spawnPoints of layer.objects) {
-        if (spawnPoints[spawnPoints.name]) {
-          spawnPoints[spawnPoints.name].push({
-            x: spawnPoints.x,
-            y: spawnPoints.y,
-          });
-          continue;
+      for (const spawnPoint of layer.objects) {
+        const key = spawnPoint.name;
+        if (spawnPoints[key]) {
+          spawnPoints[key].push({ x: spawnPoint.x, y: spawnPoint.y });
+        } else {
+          spawnPoints[key] = [{ x: spawnPoint.x, y: spawnPoint.y }];
         }
-        spawnPoints[spawnPoints.name] = [
-          {
-            x: spawnPoints.x,
-            y: spawnPoints.y,
-          },
-        ];
       }
     }
   }
