@@ -14,8 +14,13 @@ export async function makeMap(k: KaboomCtx, name: String) {
             collisionIgnore: ['platform', 'exit'],
           }),
           collider.name !== 'exit' ? k.body({ isStatic: true }) : null,
+          k.pos(collider.x, collider.y),
+          collider.name !== 'exit' ? 'platform' : 'exit',
         ]);
       }
+      continue;
     }
+    if (layer.name === 'spawnpoints') {
+      for (const spawnPoints of layer.objects) {
   }
 }
