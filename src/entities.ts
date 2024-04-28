@@ -19,4 +19,5 @@ export function makePlayer(k: KaboomCtx, posX: number, posY: number) {
     },
     'player',
   ]);
+  player.onCollide('enemy', async () => {});
 }
