@@ -1,4 +1,4 @@
-import { KaboomCtx } from 'kaboom';
+import { GameObj, KaboomCtx } from 'kaboom';
 import { scale } from './constants';
 
 export function makePlayer(k: KaboomCtx, posX: number, posY: number) {
@@ -19,5 +19,13 @@ export function makePlayer(k: KaboomCtx, posX: number, posY: number) {
     },
     'player',
   ]);
-  player.onCollide('enemy', async () => {});
+
+  player.onCollide('enemy', async (enemy: GameObj) => {
+    if (player.isInhaling && enemy.isInhalable) {
+      player.isInhaling = false;
+      k.destroy(enemy);
+      player.isFull = true;
+      return;
+    }
+  });
 }
