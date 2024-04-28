@@ -1,5 +1,6 @@
 import { GameObj, KaboomCtx } from 'kaboom';
 import { scale } from './constants';
+import { globalGameState } from './state';
 
 export function makePlayer(k: KaboomCtx, posX: number, posY: number) {
   const player = k.make([
