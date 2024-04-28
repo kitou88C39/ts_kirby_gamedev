@@ -65,4 +65,23 @@ export function makePlayer(k: KaboomCtx, posX: number, posY: number) {
     k.pos(),
     'inhaleZone',
   ]);
+  inhaleZone.onUpdate(() => {
+    if (player.direction === 'left') {
+      inhaleZone.pos = k.vec2(-14, 8);
+      inhaleEffect.pos = k.vec2(player.pos.x - 60, player.pos.y + 0);
+      inhaleEffect.flipX = true;
+      return;
+    }
+    inhaleZone.pos = k.vec2(14, 8);
+    inhaleEffect.pos = k.vec2(player.pos.x + 60, player.pos.y + 0);
+    inhaleEffect.flipX = false;
+  });
+
+  player.onUpdate(() => {
+    if (player.pos.y > 2000) {
+      k.go(globalGameState.currentScene);
+    }
+  });
+
+  return player;
 }
