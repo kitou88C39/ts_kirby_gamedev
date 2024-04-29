@@ -32,14 +32,14 @@ async function gameSetup() {
       k.fixed(),
     ]);
   });
-  k.add(level2Layout);
+  k.add(level1Layout);
 
   const kirb = makePlayer(
     k,
-    level2SpawnPoints.player[0].x,
-    level2SpawnPoints.player[0].y
+    level1SpawnPoints.player[0].x,
+    level1SpawnPoints.player[0].y
   );
-});
+
   k.go('level-1');
 }
 
