@@ -39,11 +39,14 @@ async function gameSetup() {
     level1SpawnPoints.player[0].x,
     level1SpawnPoints.player[0].y
   );
+
   k.add(kirb);
   k.camScale(k.vec2(0.7));
   k.onUpdate(() => {
-    if (kirb.pos.x < level1Layout.pos.x + 432) k.camPos(kirb.pos.x + 500, 800);
+    if (kirb.pos.x < level1Layout.pos.x + 432) 
+    k.camPos(kirb.pos.x + 500, 800);
   });
+})
 
   k.go('level-1');
 }
