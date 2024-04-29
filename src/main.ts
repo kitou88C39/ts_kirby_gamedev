@@ -40,6 +40,7 @@ async function gameSetup() {
     level1SpawnPoints.player[0].y
   );
 
+
   k.add(kirb);
   k.camScale(k.vec2(0.7));
   k.onUpdate(() => {
@@ -47,6 +48,7 @@ async function gameSetup() {
     k.camPos(kirb.pos.x + 500, 800);
   });
 })
+
 
   k.go('level-1');
 }
